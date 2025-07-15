@@ -1,0 +1,21 @@
+// Konsoliin loggaus
+
+const info = (...params) => {
+  if (process.env.NODE_ENV !== 'test') {
+    console.log(...params)
+  }
+}
+
+const error = (...params) => {
+  if (process.env.NODE_ENV !== 'test') {
+    console.error(...params)
+  }
+}
+
+const debug = (...params) => {
+  if (process.env.NODE_ENV === 'development') {
+    console.log('[DEBUG]', ...params)
+  }
+}
+
+export default { info, error, debug }
